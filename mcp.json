@@ -1,0 +1,60 @@
+{
+    "mcpServers": {
+      "context7": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@upstash/context7-mcp"
+        ]
+      },
+      "filesystem": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem",
+          "D:/",
+          "C:/"
+        ]
+      },
+      "sequential-thinking": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-sequential-thinking"
+        ]
+      },
+      "mcp-feedback-enhanced": {
+        "command": "uvx",
+        "args": [
+          "mcp-feedback-enhanced@latest"
+        ],
+        "timeout": 600,
+        "autoApprove": [
+          "interactive_feedback"
+        ]
+      },
+
+
+      "streamable-mcp-server": {
+        "type": "streamable-http",
+        "url": "http://127.0.0.1:12306/mcp"
+      },
+      "mysql": {
+        "command": "npx",
+        "args": [
+          "mcprunner",
+          "MYSQL_HOST=10.10.19.1",
+          "MYSQL_PORT=9030",
+          "MYSQL_USER=ai_user1",
+          "MYSQL_PASS=Weshare@2025",
+          "MYSQL_DB=orange",
+          "ALLOW_INSERT_OPERATION=true",
+          "ALLOW_UPDATE_OPERATION=true",
+          "--",
+          "npx",
+          "-y",
+          "@benborla29/mcp-server-mysql"
+        ]
+      }
+}
+}
